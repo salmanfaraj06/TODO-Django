@@ -1,0 +1,19 @@
+{
+  "name": "my-django-app",
+  "builds": [
+    {
+      "src": "djangoProject/wsgi.py",
+      "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "djangoProject/wsgi.py"
+    }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "djangoProject.settings"
+  }
+}
